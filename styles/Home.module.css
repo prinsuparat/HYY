@@ -3,11 +3,15 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    overflow: visible; /* 允许溢出，人物放大不裁切 */
 }
 
 .stage {
     position: absolute;
     bottom: 0;
+    /* 人物缩放，scale数值自行调整 1.0原始，1.25放大 */
+    transform: scale(1.25);
+    transform-origin: center bottom;
 }
 
 .options {
@@ -18,6 +22,11 @@
     flex-direction: column;
     align-items: center;
     z-index: 999;
+}
+
+/* 隐藏options里面除bgm按钮之外所有元素，即隐藏github图标 */
+.options > *:not(.bgm) {
+    display: none;
 }
 
 .bgm {
